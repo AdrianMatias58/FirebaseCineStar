@@ -24,9 +24,10 @@ Cine.getCine = async (id) => {
     where("id", "==", id)
   )
   const datos = await getDocs(sql);
+  const objtD = datos.docs[0]
   const cine = {
-    id: datos.id,
-    ...datos.data(),
+    id: objtD.id,
+    ...objtD.data(),
   };
   return cine;
 };

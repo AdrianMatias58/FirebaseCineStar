@@ -4,11 +4,9 @@ import db from "./firabase.js";
 import {
   collection,
   getDocs,
-  getDoc,
-  doc,
   query,
   where,
-  orderBy,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 //seccion de llarmar a las coleccion
 const Pelicula = {};
@@ -27,11 +25,15 @@ Pelicula.getPeliculas = async (id) => {
   return lista;
 };
 Pelicula.getPelicula = async (id) => {
-  const obj = doc(db, nombreColeccion, id);
-  const datos = await getDoc(obj);
+  const sql = query(
+    collection(db, nombreColeccion),
+    where("id", "==", id)
+  );
+  const datos = await getDocs(sql);
+  const objtD = datos.docs[0]
   const Pelicula = {
-    id: datos.id,
-    ...datos.data(),
+    id: objtD.id,
+    ...objtD.data(),
   };
   return Pelicula;
 };
