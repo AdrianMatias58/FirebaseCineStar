@@ -1,5 +1,5 @@
 //importacion de la base de datos
-import db from "./firabase.js";
+import db from './firabase.js';
 //importarcion de la funcion leer de la firestore
 import {
   collection,
