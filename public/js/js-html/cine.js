@@ -63,17 +63,32 @@ const CargarDetalleCine = async () => {
         </div>
 
         <div class="clearbox"></div>
-        <div style="margin-top:20px;">
-            <img style="float:left;" src="img/cine/${cine.id}.3.jpg" alt="Promoción"/>
-            <span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
-                Horario de atención de juegos es de 12:00 m hasta las 10:30 pm. 
-                <br/><br/>
-                Visítanos y diviértete con nosotros. 
-                <br/><br/>
-                <b>CINESTAR</b>, siempre pensando en ti. 
-            </span>     
-        </div>
         `;
+        if(cine.id >= 6){
+            html += `
+            <div style="margin-top:20px;">
+                    <img style="float:left;" src="img/cine/${cine.id}.1.jpg" alt="Promoción"/>
+                    <span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
+                        Horario de atención de juegos es de 12:00 m hasta las 10:30 pm. 
+                        <br/><br/>
+                        Visítanos y diviértete con nosotros. 
+                        <br/><br/>
+                        <b>CINESTAR</b>, siempre pensando en ti. 
+                    </span>     
+                </div>`;
+        }else{
+            html += `
+            <div style="margin-top:20px;">
+                    <img style="float:left;" src="img/cine/${cine.id}.3.jpg" alt="Promoción"/>
+                    <span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
+                        Horario de atención de juegos es de 12:00 m hasta las 10:30 pm. 
+                        <br/><br/>
+                        Visítanos y diviértete con nosotros. 
+                        <br/><br/>
+                        <b>CINESTAR</b>, siempre pensando en ti. 
+                    </span>     
+                </div>`;
+        }
   } else {
     html += `
         <div class="cine-info">
@@ -90,19 +105,8 @@ const CargarDetalleCine = async () => {
             <br/>
             <h4>Los horarios de cada función están sujetos a cambios sin previo aviso.</h4><br/>
         </div>
-        
-        <div style="margin-top:20px;">
-            <img style="float:left;" src="img/cine/${cine.id}.3.jpg" alt="Promoción"/>
-            <span class="tx_gris">Precios de los juegos: desde S/1.00 en todos los Cine Star.<br/>
-                Horario de atención de juegos es de 12:00 m hasta las 10:30 pm. 
-                <br/><br/>
-                Visítanos y diviértete con nosotros. 
-                <br/><br/>
-                <b>CINESTAR</b>, siempre pensando en ti. 
-            </span>     
-        </div>`;
+        `;
   }
-
   divContenedor.innerHTML = html;
 };
 CargarDetalleCine();
